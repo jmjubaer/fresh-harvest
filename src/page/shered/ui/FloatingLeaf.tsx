@@ -7,7 +7,7 @@ const FloatingLeaf = ({ className }: { className: string }) => {
         <Image
             src={leaf}
             alt='Floating Leaf'
-            className={clsx("absolute w-28 -z-10", className)}
+            className={clsx("absolute -z-10", className)}
         />
     );
 };

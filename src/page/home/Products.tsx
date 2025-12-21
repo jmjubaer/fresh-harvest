@@ -66,8 +66,8 @@ const Products = () => {
             </Spin>
             {/* Floating leaf */}
             <div className="">
-                <FloatingLeaf className=" right-5 top-10"/>
-                <FloatingLeaf className=" left-5 rotate-45 top-20"/>
+                <FloatingLeaf className=" right-5 top-10 -rotate-45"/>
+                <FloatingLeaf className=" left-5 top-20"/>
             </div>
                 {/* See more button */}
             <div className='text-center mt-8'>

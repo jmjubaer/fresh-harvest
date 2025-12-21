@@ -57,12 +57,12 @@ const Offer = () => {
             </>
             {/* Floating leaf */}
             <>
-                <FloatingLeaf className='top-14 right-[20%] -rotate-112' />
-                <FloatingLeaf className='bottom-5 -right-10 ' />
+                <FloatingLeaf className='top-14 right-[20%] -rotate-160' />
+                <FloatingLeaf className='-bottom-5 -right-16 w-40 -rotate-40' />
                 <Image
                     src={leaf}
                     alt='Floating Leaf'
-                    className="absolute w-48 -bottom-16 -left-10 rotate-80 blur-md"
+                    className="absolute w-48 -bottom-20 -left-16 rotate-20 blur-md"
                 />
             </>
         </div>

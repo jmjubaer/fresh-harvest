@@ -1,9 +1,10 @@
 
 const SectionTag = ({ tag }: { tag: string }) => {
+    // todo: Transparent 
     return (
-        <span className='bg-[#749B3F]/10 capitalize text-[#749B3F] px-2 py-1 rounded text-lg'>
+        <p className='bg-[#e4e8df] capitalize text-secondary px-2 py-1 rounded text-lg Z-10 w-fit'>
             {tag}
-        </span>
+        </p>
     );
 };
 

@@ -77,9 +77,9 @@ const Banner = () => {
             />
             {/* Floating Leaf */}
             <div className=''>
-                <FloatingLeaf className='top-40 right-[35%]' />
-                <FloatingLeaf className='top-24 -left-14 rotate-270' />
-                <FloatingLeaf className='bottom-40 left-0' />
+                <FloatingLeaf className='top-40 right-[35%] -rotate-45' />
+                <FloatingLeaf className='top-20 -left-20 rotate-220 w-40' />
+                <FloatingLeaf className='bottom-30 left-[1%] -rotate-40 w-30' />
             </div>
         </div>
     );

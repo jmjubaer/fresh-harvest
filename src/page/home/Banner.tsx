@@ -62,20 +62,19 @@ const Banner = () => {
                 </div>
             </div>
             {/* Bg Image */}
-
             <Image
                 src={bg}
                 alt='bg image'
                 className='absolute top-0 right-0 h-full w-full bg-[#749B3F] -z-10'
             />
-
+            {/* Bg right color */}
             <div className='absolute top-0 right-0 h-full w-[30%] bg-[#749B3F] -z-10'></div>
+            {/* Banner image */}
             <Image
                 src={banner}
                 alt='special product'
                 className='absolute right-0 -z-10 bottom-0 sm:w-[45%] w-4/5'
             />
-
             {/* Floating Leaf */}
             <div className=''>
                 <Image

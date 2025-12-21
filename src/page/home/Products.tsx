@@ -9,6 +9,7 @@ import { useState } from "react";
 import SectionHeading from "../shered/ui/SectionHeading";
 import ProductCard from "../shered/ui/ProductCard";
 import ButtonOutline from "../shered/ui/ButtonOutline";
+import FloatingLeaf from "../shered/ui/FloatingLeaf";
 
 const Products = () => {
     const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -20,7 +21,7 @@ const Products = () => {
     // console.log(isError);
     // Todo: filter by category
     return (
-        <div className='container pt-40'>
+        <div className='container relative pt-40'>
             <SectionHeading
                 tag='Our Products'
                 title='Our Fresh Products'
@@ -63,6 +64,12 @@ const Products = () => {
                     ))}
                 </div>
             </Spin>
+            {/* Floating leaf */}
+            <div className="">
+                <FloatingLeaf className=" right-5 top-10"/>
+                <FloatingLeaf className=" left-5 rotate-45 top-20"/>
+            </div>
+                {/* See more button */}
             <div className='text-center mt-8'>
                 <ButtonOutline>See All Products</ButtonOutline>
             </div>

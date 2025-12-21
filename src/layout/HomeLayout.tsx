@@ -1,7 +1,13 @@
+import Navbar from "@/page/shered/Navbar";
 import React from "react";
 
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {
-    return <div>{children}</div>;
+    return (
+        <div>
+            <Navbar />
+            {children}
+        </div>
+    );
 };
 
 export default HomeLayout;

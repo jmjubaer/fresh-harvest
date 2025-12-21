@@ -10,9 +10,10 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination, Autoplay } from "swiper/modules";
 import SectionHeading from "../shered/ui/SectionHeading";
+import FloatingLeaf from "../shered/ui/FloatingLeaf";
 const Testimonial = () => {
     return (
-        <div className='container my-37.5'>
+        <div className='container my-37.5 relative'>
             <SectionHeading
                 tag='Testimonial'
                 title='What Our Customers Say'
@@ -115,6 +116,11 @@ const Testimonial = () => {
                     </SwiperSlide>
                 </Swiper>
             </div>
+            {/* Floating Leaf */}
+            <>
+            <FloatingLeaf className="top-24 right-28 -rotate-45"/>
+            <FloatingLeaf className="top-14 left-20"/>
+            </>
         </div>
     );
 };

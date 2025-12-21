@@ -2,6 +2,7 @@ import Image from "next/image";
 import product from "@/assets/special-product.png";
 import leaf from "@/assets/leaf.png";
 import banner from "@/assets/banner.png";
+import bg from "@/assets/banner-bg.jpg";
 import arrow from "@/assets/arrow.png";
 import playstore from "@/assets/play.png";
 import applestore from "@/assets/app.png";
@@ -10,7 +11,7 @@ const Banner = () => {
     return (
         <div className=' w-full min-h-screen relative pt-48 pb-36'>
             {/* "Banner content" */}
-            <div className='container '>
+            <div className='container'>
                 <div className='md:w-3/5 z-20'>
                     <SectionTag tag='Welcome to Fresh Harvest' />
                     <h1 className='sm:text-[80px] text-5xl font-medium leading-[100%] mt-4 '>
@@ -60,6 +61,14 @@ const Banner = () => {
                     </div>
                 </div>
             </div>
+            {/* Bg Image */}
+
+            <Image
+                src={bg}
+                alt='bg image'
+                className='absolute top-0 right-0 h-full w-full bg-[#749B3F] -z-10'
+            />
+
             <div className='absolute top-0 right-0 h-full w-[30%] bg-[#749B3F] -z-10'></div>
             <Image
                 src={banner}

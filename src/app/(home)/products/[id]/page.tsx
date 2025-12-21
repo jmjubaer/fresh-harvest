@@ -17,6 +17,8 @@ import { Spin } from "antd";
 import { useState } from "react";
 import { FaCartShopping, FaHeart } from "react-icons/fa6";
 import SectionTag from "@/page/shered/ui/SectionTag";
+import DetailsSection from "@/page/products/DetailsSection";
+import RelatedProduct from "@/page/products/RealatedProducts";
 const SingleProduct = ({ id }: { id: string }) => {
     const [quantity, setQuantity] = useState<number>(1);
     const { data, isLoading, isFetching } = useGetSingleProductQuery(id);
@@ -108,6 +110,13 @@ const SingleProduct = ({ id }: { id: string }) => {
                         </div>
                     </div>
                 </div>
+                {/* Details section */}
+                <div className='mt-16'>
+                    <DetailsSection description={data?.data?.description} />
+                </div>
+                {/* Related product  */}
+                {/* Todo: use different loader for related products */}
+                <RelatedProduct />
             </Spin>
         </div>
     );

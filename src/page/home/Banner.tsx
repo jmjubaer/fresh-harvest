@@ -7,6 +7,7 @@ import arrow from "@/assets/arrow.png";
 import playstore from "@/assets/play.png";
 import applestore from "@/assets/app.png";
 import SectionTag from "../shered/ui/SectionTag";
+import FloatingLeaf from "../shered/ui/FloatingLeaf";
 const Banner = () => {
     return (
         <div className=' w-full min-h-screen relative pt-48 pb-36'>
@@ -77,21 +78,9 @@ const Banner = () => {
             />
             {/* Floating Leaf */}
             <div className=''>
-                <Image
-                    src={leaf}
-                    alt='Floating Leaf'
-                    className='w-32 absolute top-40 right-[35%] -z-10'
-                />
-                <Image
-                    src={leaf}
-                    alt='Floating Leaf'
-                    className='w-32 absolute top-20 -left-16 -z-10 rotate-270'
-                />
-                <Image
-                    src={leaf}
-                    alt='Floating Leaf'
-                    className='w-32 absolute bottom-36 left-0 -z-10 '
-                />
+                <FloatingLeaf className='top-40 right-[35%]' />
+                <FloatingLeaf className='top-24 -left-14 rotate-270' />
+                <FloatingLeaf className='bottom-40 left-0' />
             </div>
         </div>
     );

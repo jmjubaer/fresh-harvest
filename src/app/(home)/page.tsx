@@ -1,3 +1,4 @@
+import About from "@/page/home/About";
 import Banner from "@/page/home/Banner";
 import Products from "@/page/home/Products";
 
@@ -6,6 +7,7 @@ const HomePage = () => {
         <div>
             <Banner />
             <Products />
+            <About/>
         </div>
     );
 };

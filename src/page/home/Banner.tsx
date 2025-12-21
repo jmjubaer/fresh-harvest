@@ -1,6 +1,5 @@
 import Image from "next/image";
 import product from "@/assets/special-product.png";
-import leaf from "@/assets/leaf.png";
 import banner from "@/assets/banner.png";
 import bg from "@/assets/banner-bg.jpg";
 import arrow from "@/assets/arrow.png";

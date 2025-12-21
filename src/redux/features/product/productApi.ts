@@ -17,7 +17,32 @@ const productApi = baseApi.injectEndpoints({
                 };
             },
         }),
+        getSingleProduct: builder.query({
+            query: (id) => {
+                return {
+                    url: `/products/${id}`,
+                    method: "GET",
+                };
+            },
+        }),
+        getAllCategory: builder.query({
+            query: () => ({
+                url: "/category ",
+                method: "GET",
+            }),
+        }),
+        getSingleCategory: builder.query({
+            query: (id) => ({
+                url: `/category/${id}`,
+                method: "GET",
+            }),
+        }),
     }),
 });
 
-export const { useGetAllProductsQuery } = productApi;
+export const {
+    useGetAllProductsQuery,
+    useGetSingleCategoryQuery,
+    useGetAllCategoryQuery,
+    useGetSingleProductQuery,
+} = productApi;

@@ -1,12 +1,14 @@
+import Footer from "@/page/shered/Footer";
 import Navbar from "@/page/shered/Navbar";
 import React from "react";
 
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div>
+        <>
             <Navbar />
-            {children}
-        </div>
+            <div className='min-h-screen'>{children}</div>
+            <Footer />
+        </>
     );
 };
 

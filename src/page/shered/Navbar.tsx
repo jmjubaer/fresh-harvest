@@ -42,7 +42,7 @@ const Navbar = () => {
                 <Logo />
                 <nav className='lg:flex items-center gap-10 font-secondary text-sm hidden'>
                     <NavLink href={"/"}>Home</NavLink>
-                    <NavLink href={"/"}>Shop</NavLink>
+                    <NavLink href={"/shop"}>Shop</NavLink>
                     <NavLink href={"/"}>About us</NavLink>
                     <NavLink href={"/"}>Blog</NavLink>
                 </nav>{" "}

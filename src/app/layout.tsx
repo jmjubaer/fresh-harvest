@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Questrial, Rubik } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers";
+import AuthModal from "@/page/auth/AuthModal";
 
 const rubik = Rubik({
     variable: "--font-Rubik",
@@ -29,7 +30,10 @@ export default function RootLayout({
         <html lang='en'>
             <body
                 className={`${rubik.className} ${questrial.variable} antialiased  text-primary-text min-h-screen`}>
-                <Providers>{children}</Providers>
+                <Providers>
+                    {children}
+                    <AuthModal />
+                </Providers>
             </body>
         </html>
     );

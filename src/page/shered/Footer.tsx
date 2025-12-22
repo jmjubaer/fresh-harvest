@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Logo from "./ui/Logo";
 import playstore from "@/assets/play.png";
@@ -10,7 +11,11 @@ import payment_methods_1 from "@/assets/visa_card.png";
 import payment_methods_2 from "@/assets/paypal.png";
 import payment_methods_3 from "@/assets/pay.png";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
+import { openLogin, openSignup } from "@/redux/features/auth/authModalSlice";
+
 const Footer = () => {
+    const dispatch = useDispatch();
     return (
         <footer className='bg-[#F4F6F6] pt-16'>
             <div className='container'>
@@ -66,11 +71,15 @@ const Footer = () => {
                             <li className='my-3 text-[#4A4A52]'>
                                 <Link href='/'>Cart</Link>
                             </li>
-                            <li className='my-3 text-[#4A4A52]'>
-                                <Link href='/'>Sign in</Link>
+                            <li className='my-3 text-[#4A4A52] '>
+                                <button className="cursor-pointer" onClick={() => dispatch(openLogin())}>
+                                    Sign in
+                                </button>
                             </li>
-                            <li className='my-3 text-[#4A4A52]'>
-                                <Link href='/'>Register</Link>
+                            <li className='my-3 text-[#4A4A52] '>
+                                <button className="cursor-pointer" onClick={() => dispatch(openSignup())}>
+                                    Register
+                                </button>
                             </li>
                         </ul>
                     </div>

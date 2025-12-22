@@ -6,13 +6,14 @@ import { FaTimes } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import NavLink from "@/utils/Navlink";
-import LoginModal from "../auth/LoginModal";
-import RegisterModal from "../auth/RegisterModal";
+import { useDispatch } from "react-redux";
+import { openLogin } from "@/redux/features/auth/authModalSlice";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const path = usePathname();
+    const dispatch = useDispatch();
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.scrollY;
@@ -30,7 +31,9 @@ const Navbar = () => {
     return (
         <div
             className={`fixed top-0 left-0 z-20 w-full transition-all  duration-500 ${
-                scrolled ? "bg-primary/80 text-white backdrop-blur" : "bg-transparent"
+                scrolled
+                    ? "bg-primary/80 text-white backdrop-blur"
+                    : "bg-transparent"
             }`}>
             <div
                 className={`container duration-500 flex items-center justify-between  z-20 ${
@@ -62,14 +65,14 @@ const Navbar = () => {
                         Cart
                     </Link>
                     <button
-                        className={`border py-3 px-6 font-semibold rounded ${
+                        onClick={() => dispatch(openLogin())}
+                        className={`border cursor-pointer py-3 px-6 font-semibold rounded ${
                             path === "/" || scrolled
                                 ? " text-white"
                                 : "text-primary-text"
                         }`}>
                         Sign in
                     </button>
-                    <RegisterModal/>
                 </nav>
                 {/* Mobile Menu */}
                 <div

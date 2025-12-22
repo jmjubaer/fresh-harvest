@@ -19,7 +19,7 @@ const Products = () => {
     console.log(data, error);
     console.log(categoryData);
     // console.log(isError);
-    // Todo: filter by category
+    // Todo: filter by category in frontend filter method
     return (
         <div className='container relative pt-40'>
             <SectionHeading

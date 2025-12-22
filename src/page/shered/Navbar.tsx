@@ -6,6 +6,7 @@ import { FaTimes } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import NavLink from "@/utils/Navlink";
+import LoginModal from "../auth/LoginModal";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -67,6 +68,7 @@ const Navbar = () => {
                         }`}>
                         Sign in
                     </button>
+                    <LoginModal/>
                 </nav>
                 {/* Mobile Menu */}
                 <div

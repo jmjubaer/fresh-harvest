@@ -3,10 +3,8 @@
 import { Checkbox, Divider, Modal } from "antd";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import google from "@/assets/Google.png";
-import facebook from "@/assets/facebook.png";
-import Image from "next/image";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import SocialLogin from "./SocialLogin";
 type TLoginInput = {
     email: string;
     password: string;
@@ -51,6 +49,7 @@ const LoginModal = () => {
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     className='-tracking-[2%]'>
+                    {/* email input */}
                     <div className='mt-6 leading-6 -tracking-[2%] font-secondary'>
                         <label
                             htmlFor='email'
@@ -68,6 +67,7 @@ const LoginModal = () => {
                             </span>
                         )}
                     </div>
+                    {/* password input*/}
                     <div className='mt-5 leading-6 -tracking-[2%] font-secondary '>
                         <label
                             htmlFor='password'
@@ -98,6 +98,7 @@ const LoginModal = () => {
                         )}
                     </div>
 
+                    {/* additional part */}
                     <div className='flex items-center justify-between mt-6'>
                         <Checkbox
                             onChange={(e) => setRememberMe(e.target.checked)}
@@ -108,34 +109,16 @@ const LoginModal = () => {
                             Forgot Password
                         </button>
                     </div>
+
                     <input
                         type='submit'
                         className='text-white bg-primary px-8 py-4 rounded-lg mt-6 w-full cursor-pointer text-lg font-semibold'
                     />
                 </form>
                 <Divider>Or Sign in with</Divider>
-                <div className='grid grid-cols-2 gap-4 mt-6'>
-                    <button className='flex items-center gap-3 border border-shadow rounded-lg justify-center p-3 cursor-pointer text-lg font-semibold'>
-                        {" "}
-                        <Image
-                            width={20}
-                            height={20}
-                            src={google}
-                            alt='Google Icon'
-                        />{" "}
-                        Google
-                    </button>
-                    <button className='flex items-center gap-3 border border-shadow rounded-lg justify-center p-3 cursor-pointer text-lg font-semibold'>
-                        {" "}
-                        <Image
-                            width={20}
-                            height={20}
-                            src={facebook}
-                            alt='Facebook Icon'
-                        />{" "}
-                        Facebook
-                    </button>
-                </div>
+                {/* Social Login */}
+                <SocialLogin />
+                
                 <p className='py-3 text-center font-semibold text-sm mt-6'>
                     Don’t have an account?{" "}
                     <button className='text-primary'>Sign up</button>

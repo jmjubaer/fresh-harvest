@@ -8,7 +8,6 @@ import SocialLogin from "./SocialLogin";
 type TLoginInput = {
     email: string;
     password: string;
-    rememberMe?: boolean;
 };
 const LoginModal = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -111,6 +110,7 @@ const LoginModal = () => {
                     </div>
 
                     <input
+                    value={"Login"}
                         type='submit'
                         className='text-white bg-primary px-8 py-4 rounded-lg mt-6 w-full cursor-pointer text-lg font-semibold'
                     />
@@ -118,7 +118,7 @@ const LoginModal = () => {
                 <Divider>Or Sign in with</Divider>
                 {/* Social Login */}
                 <SocialLogin />
-                
+
                 <p className='py-3 text-center font-semibold text-sm mt-6'>
                     Don’t have an account?{" "}
                     <button className='text-primary'>Sign up</button>

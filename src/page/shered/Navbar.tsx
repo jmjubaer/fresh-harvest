@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import NavLink from "@/utils/Navlink";
 import LoginModal from "../auth/LoginModal";
+import RegisterModal from "../auth/RegisterModal";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -68,7 +69,7 @@ const Navbar = () => {
                         }`}>
                         Sign in
                     </button>
-                    <LoginModal/>
+                    <RegisterModal/>
                 </nav>
                 {/* Mobile Menu */}
                 <div

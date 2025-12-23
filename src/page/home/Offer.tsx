@@ -12,7 +12,7 @@ const Offer = () => {
     expiry.setDate(expiry.getDate() + 10); // Adds 10 days
     return (
         <div className=' py-24 relative overflow-hidden'>
-            <div className='container z-10'>
+            <div className='container z-10 text-center sm:text-left sm:block flex flex-col justify-center items-center'>
                 <SectionTag tag='Special Offer ' />
                 <h2 className='lg:text-[80px] sm:text-6xl text-5xl font-medium z-10'>
                     Seasonal Fruit Bundle
@@ -21,7 +21,7 @@ const Offer = () => {
                     Discount up to <span className='text-primary'>80% OFF</span>
                 </p>
 
-                {/* <MyTimer expiryTimestamp={expiry} /> */}
+                <MyTimer expiryTimestamp={expiry} />
 
                 <span className='sm:text-[32px] text-2xl px-8 py-4 font-semibold bg-[#176D38] rounded-full text-white mt-8 inline-block'>
                     CODE : <span className='text-[#FAC714]'>FRESH28</span>

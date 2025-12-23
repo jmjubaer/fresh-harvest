@@ -38,7 +38,7 @@ const Products = () => {
                 spinning={isLoading || isCategoryLoading}
                 size='large'>
                 {" "}
-                <div className='mx-auto w-fit mt-4 flex items-center sm:gap-6 gap-3'>
+                <div className='mx-auto w-fit mt-4 flex flex-wrap justify-center items-center sm:gap-6 gap-3'>
                     <button
                         onClick={() => setSelectedCategory("All")}
                         className={`${

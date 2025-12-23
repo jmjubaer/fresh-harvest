@@ -97,4 +97,7 @@ body {
   border-color: #ff6a1a !important;
 }
 
-
+/* swiper */
+.swiper-pagination-bullet-active {
+    background: #749b3f !important;
+}

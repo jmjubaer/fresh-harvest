@@ -8,6 +8,7 @@ import applestore from "@/assets/app.png";
 import SectionTag from "../shered/ui/SectionTag";
 import FloatingLeaf from "../shered/ui/FloatingLeaf";
 import BannerProductCard from "./BannerProductCard";
+import Link from "next/link";
 const Banner = () => {
     return (
         <div className=' w-full min-h-screen relative pt-48 pb-36'>
@@ -23,9 +24,9 @@ const Banner = () => {
                         with the freshest and most flavorful fruits and
                         vegetables
                     </p>
-                    <button className='text-white bg-primary px-8 py-4 rounded-lg mt-8'>
+                    <Link href={"/shop"} className='text-white block w-fit bg-primary px-8 py-4 rounded-lg mt-8'>
                         Shop Now
-                    </button>
+                    </Link>
                     <Image
                         src={arrow}
                         alt='arrow '
@@ -33,7 +34,7 @@ const Banner = () => {
                     />
 
                     {/* product card */}
-                    <div className='md:ml-[30%] mt-5'>
+                    <div className='md:ml-[30%] my-5'>
                         <BannerProductCard />
                     </div>
                     <div className=''>

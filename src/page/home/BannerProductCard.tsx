@@ -6,28 +6,28 @@ import Link from "next/link";
 import image from "@/assets/banner-product-image.png";
 const BannerProductCard = () => {
     return (
-        <div className='bg-[#EBEBEB] flex items-center rounded-xl w-fit h-fit'>
+        <div className='bg-[#EBEBEB] shadow flex items-center rounded-xl w-fit h-fit'>
             <div className='w-fit p-5'>
-                <p className='text-secondary font-medium text-sm'>
+                <p className='text-secondary font-medium text-sm text-nowrap'>
                     Special Offer
                 </p>
                 <Link
                     href={`/products/67545db31cdb919fe028cf3f`}
-                    className='sm:text-[28px] text-xs font-medium '>
+                    className='sm:text-[28px] text-xs font-medium text-nowrap'>
                     <span className='text-primary-text'>Fresh Salad</span>
                 </Link>
-                <p className=' font-medium'>
+                <p className=' font-medium text-nowrap'>
                     <span className='text-secondary'>Up to</span>{" "}
                     <span className='border-2 border-primary rounded-[100%]'>
                         70%
                     </span>{" "}
                     <span className=''>off</span>
                 </p>
-                <span className='bg-[#176D38] py-1.5 px-3 rounded-4xl uppercase font-semibold text-sm text-white mt-2 inline-block'>
+                <span className='bg-[#176D38] py-1.5 px-3 rounded-4xl uppercase font-semibold text-sm text-white mt-2 inline-block text-nowrap'>
                     CODE : <span className='text-[#FAC714]'>FRESH25</span>
                 </span>
             </div>
-            <div className='w-fit rounded-lg'>
+            <div className='sm:w-fit w-30% rounded-lg'>
                 <Image
                     src={image}
                     alt={"Product image "}

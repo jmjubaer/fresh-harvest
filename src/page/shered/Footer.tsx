@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Logo from "./ui/Logo";
 import playstore from "@/assets/play.png";
@@ -20,9 +20,10 @@ const Footer = () => {
         <footer className='bg-[#F4F6F6] pt-16'>
             <div className='container'>
                 <div className='grid lg:grid-cols-4 sm:grid-cols-2 justify-between'>
-                    <div className='flex flex-col justify-between'>
+                    {/* info */}
+                    <div className='flex flex-col justify-between mb-6'>
                         <Logo />
-                        <div className=''>
+                        <div className='hidden sm:block'>
                             <p className='text-sm'>Download App:</p>
                             <div className='flex items-center'>
                                 <button>
@@ -42,6 +43,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
+                    {/* quick links 1 */}
                     <div className='w-fit lg:mx-auto'>
                         <h3 className='text-lg font-medium'>Quick links 1</h3>
                         <ul className='text-sm'>
@@ -62,6 +64,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>{" "}
+                    {/* quick links 2 */}
                     <div className='w-fit lg:mx-auto'>
                         <h3 className='text-lg font-medium'>Quick links 2</h3>
                         <ul className='text-sm'>
@@ -72,17 +75,22 @@ const Footer = () => {
                                 <Link href='/'>Cart</Link>
                             </li>
                             <li className='my-3 text-[#4A4A52] '>
-                                <button className="cursor-pointer" onClick={() => dispatch(openLogin())}>
+                                <button
+                                    className='cursor-pointer'
+                                    onClick={() => dispatch(openLogin())}>
                                     Sign in
                                 </button>
                             </li>
                             <li className='my-3 text-[#4A4A52] '>
-                                <button className="cursor-pointer" onClick={() => dispatch(openSignup())}>
+                                <button
+                                    className='cursor-pointer'
+                                    onClick={() => dispatch(openSignup())}>
                                     Register
                                 </button>
                             </li>
                         </ul>
                     </div>
+                    {/* contact info */}
                     <div className=''>
                         <h3 className='text-lg font-medium'>Contact us</h3>
                         <ul className='text-sm'>
@@ -110,24 +118,43 @@ const Footer = () => {
                                     <Image
                                         src={payment_methods_1}
                                         alt='payment methods'
-                                        // className='w-48 mt-2'
+                                        className='h-12 w-fit mt-2'
                                     />
                                 </button>
                                 <button>
                                     <Image
                                         src={payment_methods_2}
                                         alt='payment methods'
-                                        // className='w-48 mt-2'
+                                        className='h-12 w-fit mt-2'
                                     />
                                 </button>
                                 <button>
                                     <Image
                                         src={payment_methods_3}
                                         alt='payment methods'
-                                        // className='w-48 mt-2'
+                                        className='h-12 w-fit mt-2'
                                     />
                                 </button>
                             </div>
+                        </div>
+                    </div>
+                    <div className='block sm:hidden mt-4'>
+                        <p className='text-sm'>Download App:</p>
+                        <div className='flex items-center'>
+                            <button>
+                                <Image
+                                    src={applestore}
+                                    alt='apple store'
+                                    className='w-36'
+                                />
+                            </button>{" "}
+                            <button>
+                                <Image
+                                    src={playstore}
+                                    alt='play store'
+                                    className='w-36'
+                                />
+                            </button>
                         </div>
                     </div>
                 </div>

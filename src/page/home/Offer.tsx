@@ -21,7 +21,7 @@ const Offer = () => {
                     Discount up to <span className='text-primary'>80% OFF</span>
                 </p>
 
-                <MyTimer expiryTimestamp={expiry} />
+                {/* <MyTimer expiryTimestamp={expiry} /> */}
 
                 <span className='sm:text-[32px] text-2xl px-8 py-4 font-semibold bg-[#176D38] rounded-full text-white mt-8 inline-block'>
                     CODE : <span className='text-[#FAC714]'>FRESH28</span>

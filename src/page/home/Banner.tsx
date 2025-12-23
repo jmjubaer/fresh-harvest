@@ -7,6 +7,7 @@ import playstore from "@/assets/play.png";
 import applestore from "@/assets/app.png";
 import SectionTag from "../shered/ui/SectionTag";
 import FloatingLeaf from "../shered/ui/FloatingLeaf";
+import BannerProductCard from "./BannerProductCard";
 const Banner = () => {
     return (
         <div className=' w-full min-h-screen relative pt-48 pb-36'>
@@ -33,12 +34,7 @@ const Banner = () => {
 
                     {/* product card */}
                     <div className='md:ml-[30%] mt-5'>
-                        {/* Todo: make dynamic */}
-                        <Image
-                            src={product}
-                            alt='special product'
-                            className='w-[70%]'
-                        />
+                        <BannerProductCard />
                     </div>
                     <div className=''>
                         <p className='text-sm'>Download App:</p>

@@ -11,7 +11,8 @@ const ProductCard = ({ product }: { product: TProduct }) => {
                     alt={product.productName}
                     width={200}
                     height={200}
-                    className='w-full lg:h-52 h-32 mx-auto bg-[#F4F6F6] rounded-lg object-cover'
+                    unoptimized
+                    className='w-full object-cove lg:h-52 h-32 mx-auto bg-[#F4F6F6] rounded-lg '
                 />
             </div>
             <div className='mt-3 text-center'>

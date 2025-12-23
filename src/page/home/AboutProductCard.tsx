@@ -18,7 +18,8 @@ const AboutProductCard = () => {
                     alt={product.productName}
                     width={150}
                     height={110}
-                    className=' mx-aut w-18.75 sm:w-36 bg-[#F4F6F6] rounded-md md:rounded-lg object-cover'
+                    unoptimized
+                    className=' w-18.75 sm:w-36 max-h-[120px] bg-[#F4F6F6] rounded-md md:rounded-lg '
                 />
             </div>
             <div className='sm:mt-3 mt-1 text-center text-[6px] sm:text-[10px]'>

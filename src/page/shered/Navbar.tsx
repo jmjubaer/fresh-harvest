@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Logo from "./ui/Logo";
 import { FaBars, FaCartShopping, FaHeart } from "react-icons/fa6";
-import { FaTimes } from "react-icons/fa";
+import { FaRegUserCircle, FaTimes } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import NavLink from "@/utils/Navlink";
@@ -10,11 +10,14 @@ import { useDispatch } from "react-redux";
 import { openLogin } from "@/redux/features/auth/authModalSlice";
 import { RootState } from "@/redux/store";
 import { useAppSelector } from "@/redux/hook";
+import { Dropdown, MenuProps } from "antd";
+import { logout } from "@/redux/features/auth/authSlice";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const {user} = useAppSelector((state: RootState) => state.auth)
+    const { user } = useAppSelector((state: RootState) => state.auth);
     const path = usePathname();
     const dispatch = useDispatch();
     console.log(user);
@@ -32,6 +35,43 @@ const Navbar = () => {
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+    const handleLogout = () => {
+        Swal.fire({
+            title: "Warning",
+            text: "Are you Want to Log out!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#749b3f",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Log Out",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(logout());
+                dispatch(openLogin());
+            }
+        });
+    };
+    const UserItems: MenuProps["items"] = [
+        {
+            label: (
+                <Link href={"/admin"} className='text-xl'>
+                    Admin Panel
+                </Link>
+            ),
+            key: "admin",
+        },
+        {
+            label: (
+                <div className='text-xl' onClick={() => handleLogout()}>
+                    Log out
+                </div>
+            ),
+            key: "logout",
+        },
+    ];
+    const userMenuProps = {
+        items: UserItems,
+    };
     return (
         <div
             className={`fixed top-0 left-0 z-20 w-full transition-all  duration-500 ${
@@ -68,15 +108,23 @@ const Navbar = () => {
                         </span>
                         Cart
                     </Link>
-                    <button
-                        onClick={() => dispatch(openLogin())}
-                        className={`border cursor-pointer py-3 px-6 font-semibold rounded ${
-                            path === "/" || scrolled
-                                ? " text-white"
-                                : "text-primary-text"
-                        }`}>
-                        Sign in
-                    </button>
+                    {user ? (
+                        <Dropdown trigger={["click"]} menu={userMenuProps}>
+                            <button className='cursor-pointer'>
+                                <FaRegUserCircle className='text-5xl text-white' />
+                            </button>
+                        </Dropdown>
+                    ) : (
+                        <button
+                            onClick={() => dispatch(openLogin())}
+                            className={`border cursor-pointer py-3 px-6 font-semibold rounded ${
+                                path === "/" || scrolled
+                                    ? " text-white"
+                                    : "text-primary-text"
+                            }`}>
+                            Sign in
+                        </button>
+                    )}
                 </nav>
                 {/* Mobile Menu */}
                 <div

@@ -11,6 +11,7 @@ import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { setUser } from "@/redux/features/auth/authSlice";
 import { jwtDecode } from "jwt-decode";
 import Swal from "sweetalert2";
+import { closeModal } from "@/redux/features/auth/authModalSlice";
 
 type TLoginInput = {
     email: string;
@@ -47,6 +48,7 @@ const LoginForm = () => {
                 timer: 1500,
             });
             reset();
+            dispatch(closeModal());
         }
     };
 

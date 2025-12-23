@@ -1,6 +1,5 @@
 "use client";
 import { Dropdown, MenuProps } from "antd";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { FaRegUserCircle } from "react-icons/fa";
 import Logo from "../shered/ui/Logo";

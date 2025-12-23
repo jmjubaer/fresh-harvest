@@ -9,7 +9,6 @@ import LoginForm from "./LoginForm";
 const AuthModal = () => {
     const authModal = useAppSelector((state) => state.authModal);
     const dispatch = useDispatch();
-
     return (
         <>
             <Modal

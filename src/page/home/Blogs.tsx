@@ -50,7 +50,7 @@ const Blogs = () => {
             </div>
             {/* Floating leaf */}
             <>
-                <FloatingLeaf className="top-0 right-[10%] -rotate-45"/>
+                <FloatingLeaf className="sm:top-0 -top-15 sm:right-[10%] right-0 -rotate-45"/>
             </>
         </div>
     );

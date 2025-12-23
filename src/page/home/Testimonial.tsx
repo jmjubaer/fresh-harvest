@@ -141,7 +141,7 @@ const Testimonial = () => {
             {/* Floating Leaf */}
             <>
                 <FloatingLeaf className='sm:top-24 -top-20 sm:right-28 right-0 -rotate-45' />
-                <FloatingLeaf className='sm:top-14 -top-10 left-0 sm:left-20' />
+                <FloatingLeaf className='md:top-14 -top-10 left-0 sm:left-20' />
             </>
         </div>
     );

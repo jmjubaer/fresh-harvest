@@ -8,12 +8,16 @@ import { usePathname } from "next/navigation";
 import NavLink from "@/utils/Navlink";
 import { useDispatch } from "react-redux";
 import { openLogin } from "@/redux/features/auth/authModalSlice";
+import { RootState } from "@/redux/store";
+import { useAppSelector } from "@/redux/hook";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const {user} = useAppSelector((state: RootState) => state.auth)
     const path = usePathname();
     const dispatch = useDispatch();
+    console.log(user);
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.scrollY;

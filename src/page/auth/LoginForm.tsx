@@ -8,13 +8,15 @@ import SocialLogin from "./SocialLogin";
 import { openSignup } from "@/redux/features/auth/authModalSlice";
 import { useDispatch } from "react-redux";
 import { useLoginMutation } from "@/redux/features/auth/authApi";
+import { setUser } from "@/redux/features/auth/authSlice";
+import { jwtDecode } from "jwt-decode";
 
 type TLoginInput = {
     email: string;
     password: string;
 };
 const LoginForm = () => {
-    const [login] = useLoginMutation()
+    const [login] = useLoginMutation();
     const [rememberMe, setRememberMe] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
@@ -23,8 +25,18 @@ const LoginForm = () => {
         handleSubmit,
         formState: { errors },
     } = useForm<TLoginInput>();
-    const onSubmit: SubmitHandler<TLoginInput> = (data) => {
-        console.log(data);
+    const onSubmit: SubmitHandler<TLoginInput> = async (data) => {
+        const res = await login(data);
+        console.log(res);
+        if (res?.data?.success) {
+            alert("Login successful");
+            dispatch(
+                setUser({
+                    user: jwtDecode(res?.data?.data?.token),
+                    token: res?.data?.data?.token,
+                })
+            );
+        }
     };
 
     return (
@@ -103,7 +115,7 @@ const LoginForm = () => {
             <SocialLogin />
 
             <p className='py-3 text-center font-semibold text-sm mt-6'>
-                Don’t have an account?{" "}
+                Don`t have an account?{" "}
                 <button
                     onClick={() => dispatch(openSignup())}
                     className='text-primary cursor-pointer ml-1'>

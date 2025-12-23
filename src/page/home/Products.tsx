@@ -5,7 +5,7 @@ import {
 } from "@/redux/features/product/productApi";
 import { TCategory, TProduct } from "@/types";
 import { Spin } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SectionHeading from "../shered/ui/SectionHeading";
 import ProductCard from "../shered/ui/ProductCard";
 import ButtonOutline from "../shered/ui/ButtonOutline";
@@ -13,13 +13,18 @@ import FloatingLeaf from "../shered/ui/FloatingLeaf";
 
 const Products = () => {
     const [selectedCategory, setSelectedCategory] = useState<string>("All");
-    const { data, isLoading, error } = useGetAllProductsQuery(undefined);
+    const { data, isLoading } = useGetAllProductsQuery(undefined);
     const { data: categoryData, isLoading: isCategoryLoading } =
         useGetAllCategoryQuery(undefined);
-    console.log(data, error);
-    console.log(categoryData);
-    // console.log(isError);
-    // Todo: filter by category in frontend filter method
+
+    const products: TProduct[] = data?.data ?? [];
+    const displayedProducts =
+        selectedCategory === "All"
+            ? products.slice(0, 8)
+            : products.filter(
+                  (product) =>
+                      product?.category?.categoryName === selectedCategory
+              );
     return (
         <div className='container relative pt-40'>
             <SectionHeading
@@ -59,17 +64,17 @@ const Products = () => {
                     ))}
                 </div>
                 <div className='mt-8 grid md:grid-cols-4 grid-cols-2 md:gap-6 gap-5 min-h-screen'>
-                    {data?.data?.slice(0, 8).map((product: TProduct) => (
+                    {displayedProducts.map((product: TProduct) => (
                         <ProductCard key={product.id} product={product} />
                     ))}
                 </div>
             </Spin>
             {/* Floating leaf */}
-            <div className="">
-                <FloatingLeaf className=" right-5 top-10 -rotate-45"/>
-                <FloatingLeaf className=" left-5 top-20"/>
+            <div className=''>
+                <FloatingLeaf className=' right-5 top-10 -rotate-45' />
+                <FloatingLeaf className=' left-5 top-20' />
             </div>
-                {/* See more button */}
+            {/* See more button */}
             <div className='text-center mt-8'>
                 <ButtonOutline>See All Products</ButtonOutline>
             </div>

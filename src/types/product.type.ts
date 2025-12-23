@@ -1,3 +1,5 @@
+import { TCategory } from "./category.type";
+
 export type TProduct = {
     id: string;
     productName: string;
@@ -5,6 +7,6 @@ export type TProduct = {
     price: number;
     stock: number;
     images: string[];
-    categoryId: string;
+    category: TCategory;
     isDeleted: boolean;
 };

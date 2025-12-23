@@ -5,7 +5,7 @@ import {
 } from "@/redux/features/product/productApi";
 import { TCategory, TProduct } from "@/types";
 import { Spin } from "antd";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SectionHeading from "../shered/ui/SectionHeading";
 import ProductCard from "../shered/ui/ProductCard";
 import ButtonOutline from "../shered/ui/ButtonOutline";

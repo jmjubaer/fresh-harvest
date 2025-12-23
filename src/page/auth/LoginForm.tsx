@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { setUser } from "@/redux/features/auth/authSlice";
 import { jwtDecode } from "jwt-decode";
+import Swal from "sweetalert2";
 
 type TLoginInput = {
     email: string;
@@ -21,6 +22,7 @@ const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
     const {
+        reset,
         register,
         handleSubmit,
         formState: { errors },
@@ -29,13 +31,22 @@ const LoginForm = () => {
         const res = await login(data);
         console.log(res);
         if (res?.data?.success) {
-            alert("Login successful");
+            // Store user info in redux
             dispatch(
                 setUser({
                     user: jwtDecode(res?.data?.data?.token),
                     token: res?.data?.data?.token,
                 })
             );
+
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "User Login Successful",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+            reset();
         }
     };
 
@@ -44,6 +55,7 @@ const LoginForm = () => {
             <h2 className='text-center text-[32px] font-semibold -tracking-[2px] font-primary mt-4'>
                 Login
             </h2>
+
             <form onSubmit={handleSubmit(onSubmit)} className='-tracking-[2%]'>
                 {/* email input */}
                 <div className='mt-6 leading-6 -tracking-[2%] font-secondary'>

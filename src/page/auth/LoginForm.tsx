@@ -7,22 +7,25 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import SocialLogin from "./SocialLogin";
 import { openSignup } from "@/redux/features/auth/authModalSlice";
 import { useDispatch } from "react-redux";
+import { useLoginMutation } from "@/redux/features/auth/authApi";
 
 type TLoginInput = {
     email: string;
     password: string;
 };
 const LoginForm = () => {
+    const [login] = useLoginMutation()
     const [rememberMe, setRememberMe] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
     } = useForm<TLoginInput>();
-    const onSubmit: SubmitHandler<TLoginInput> = (data) => console.log(data);
+    const onSubmit: SubmitHandler<TLoginInput> = (data) => {
+        console.log(data);
+    };
 
     return (
         <div className='-tracking-[2%]'>

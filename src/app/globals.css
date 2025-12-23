@@ -37,12 +37,7 @@ body {
     font-size: 18px !important;
     border-radius: 8px !important;
 }
-@media (max-width: 540px) {
-    .ant-tabs .ant-tabs-tab-btn {
-        padding: 6px 12px !important;
-        font-size: 12px !important;
-    }
-}
+
 .ant-tabs .ant-tabs-tab-btn:focus:not(:focus-visible),
 .ant-tabs .ant-tabs-tab-remove:focus:not(:focus-visible),
 .ant-tabs .ant-tabs-tab-btn:active,
@@ -74,12 +69,12 @@ body {
     border-bottom: 0px solid #f0f0f0 !important;
 }
 
-/* modal custom style */
+/* ======================== modal custom style ==============================*/
 .auth-modal .ant-modal-body {
     padding: 32px;
 }
 
-/* Checkbox custom design */
+/* ========================Checkbox custom design ============================ */
 .remember-checkbox .ant-checkbox-inner {
     background: transparent !important;
     border: 1px solid #ff6a1a !important;
@@ -104,4 +99,16 @@ body {
 /* swiper */
 .swiper-pagination-bullet-active {
     background: #749b3f !important;
+}
+
+
+
+@media (max-width: 540px) {
+    .ant-tabs .ant-tabs-tab-btn {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+    .auth-modal .ant-modal-body {
+    padding: 0px;
+}
 }

@@ -13,7 +13,7 @@ const AuthModal = () => {
     return (
         <>
             <Modal
-                className='auth-modal !w-1/2 -tracking-[2%]'
+                className='auth-modal w-11/12! sm:w-4/5! lg:w-1/2! -tracking-[2%]'
                 // closable={{ "aria-label": "Custom Close Button" }}
                 open={authModal.isOpen}
                 footer={null}

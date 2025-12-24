@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Divider } from "antd";
@@ -6,25 +7,47 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import SocialLogin from "./SocialLogin";
 import { useDispatch } from "react-redux";
-import { openLogin } from "@/redux/features/auth/authModalSlice";
+import { openLogin, closeModal } from "@/redux/features/auth/authModalSlice";
+import { useRegisterMutation } from "@/redux/features/auth/authApi";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
-type TLoginInput = {
+type TRegistrationInput = {
     fullName: string;
     email: string;
     password: string;
 };
+// There has an issue the register and login response are not same. After login don`t give any access token.
 const RegisterForm = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [signup] = useRegisterMutation();
     const dispatch = useDispatch();
 
     const {
+        reset,
         register,
         handleSubmit,
-        watch,
         formState: { errors },
-    } = useForm<TLoginInput>();
-    const onSubmit: SubmitHandler<TLoginInput> = (data) => console.log(data);
-
+    } = useForm<TRegistrationInput>();
+    const onSubmit: SubmitHandler<TRegistrationInput> = async (data) => {
+        try {
+            const res = await signup(data).unwrap();
+            if (res?.success) {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Register Successful, Login Now.",
+                    showConfirmButton: false,
+                    timer: 2000,
+                });
+                reset();
+                // Todo: Fix backend issue.
+                dispatch(openLogin());
+            }
+        } catch (error: any) {
+            toast.error(error?.data?.message);
+        }
+    };
     return (
         <div className=' -tracking-[2%]'>
             <h2 className='text-center text-[32px] font-semibold -tracking-[2px] font-primary mt-4'>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Checkbox, Divider } from "antd";
@@ -7,11 +8,12 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import SocialLogin from "./SocialLogin";
 import { openSignup } from "@/redux/features/auth/authModalSlice";
 import { useDispatch } from "react-redux";
+import { closeModal } from "@/redux/features/auth/authModalSlice";
 import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { setUser } from "@/redux/features/auth/authSlice";
 import { jwtDecode } from "jwt-decode";
 import Swal from "sweetalert2";
-import { closeModal } from "@/redux/features/auth/authModalSlice";
+import { toast } from "react-toastify";
 
 type TLoginInput = {
     email: string;
@@ -29,26 +31,30 @@ const LoginForm = () => {
         formState: { errors },
     } = useForm<TLoginInput>();
     const onSubmit: SubmitHandler<TLoginInput> = async (data) => {
-        const res = await login(data);
-        console.log(res);
-        if (res?.data?.success) {
-            // Store user info in redux
-            dispatch(
-                setUser({
-                    user: jwtDecode(res?.data?.data?.token),
-                    token: res?.data?.data?.token,
-                })
-            );
+        try {
+            const res = await login(data).unwrap();
+            if (res?.success) {
+                // Store user info in redux
+                dispatch(
+                    setUser({
+                        user: jwtDecode(res?.data?.token),
+                        token: res?.data?.token,
+                    })
+                );
 
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "User Login Successful",
-                showConfirmButton: false,
-                timer: 1500,
-            });
-            reset();
-            dispatch(closeModal());
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "User Login Successful",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+                reset();
+                dispatch(closeModal());
+            }
+        } catch (error: any) {
+            console.log(error);
+            toast.error(error?.data?.message);
         }
     };
 

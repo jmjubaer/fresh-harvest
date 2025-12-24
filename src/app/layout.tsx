@@ -3,6 +3,7 @@ import { Questrial, Rubik } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers";
 import AuthModal from "@/page/auth/AuthModal";
+import { ToastContainer } from "react-toastify";
 
 const rubik = Rubik({
     variable: "--font-Rubik",
@@ -33,6 +34,7 @@ export default function RootLayout({
                 <Providers>
                     {children}
                     <AuthModal />
+                     <ToastContainer />
                 </Providers>
             </body>
         </html>

@@ -10,6 +10,7 @@ import SectionHeading from "../shered/ui/SectionHeading";
 import ProductCard from "../shered/ui/ProductCard";
 import ButtonOutline from "../shered/ui/ButtonOutline";
 import FloatingLeaf from "../shered/ui/FloatingLeaf";
+import Link from "next/link";
 
 const Products = () => {
     const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -75,8 +76,12 @@ const Products = () => {
                 <FloatingLeaf className=' left-5 top-20' />
             </div>
             {/* See more button */}
-            <div className='text-center mt-8'>
-                <ButtonOutline>See All Products</ButtonOutline>
+            <div className='text-center mt-8 `'>
+                <Link
+                    href={"/shop"}
+                    className='px-8 py-4 cursor-pointer text-lg font-semibold mt-4 rounded-lg text-primary border'>
+                    See All Products
+                </Link>
             </div>
         </div>
     );

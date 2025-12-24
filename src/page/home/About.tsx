@@ -8,7 +8,7 @@ import AboutProductCard from "./AboutProductCard";
 
 const About = () => {
     return (
-        <div className='lg:flex justify-center gap-10 container items-center pb-37.5 lg:-mt-10 mt-16 relative'>
+        <div id="about" className='lg:flex justify-center gap-10 container items-center pb-37.5 lg:mt-0 mt-16 relative'>
             <div className='lg:w-[57%] mx-auto relative'>
                 <Image
                     src={aboutImage}

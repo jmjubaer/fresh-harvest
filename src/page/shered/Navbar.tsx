@@ -87,8 +87,8 @@ const Navbar = () => {
                 <nav className='lg:flex items-center gap-10 font-secondary text-sm hidden'>
                     <NavLink href={"/"}>Home</NavLink>
                     <NavLink href={"/shop"}>Shop</NavLink>
-                    <NavLink href={"/"}>About us</NavLink>
-                    <NavLink href={"/"}>Blog</NavLink>
+                    <NavLink href={"#about"}>About us</NavLink>
+                    <NavLink href={"#blog"}>Blog</NavLink>
                 </nav>{" "}
                 <nav
                     className={`lg:flex items-center gap-4 font-secondary text-sm hidden z-20 ${
@@ -159,14 +159,15 @@ const Navbar = () => {
                     </button>
                     <NavLink href={"/"}>Home</NavLink>
                     <NavLink href={"/"}>Shop</NavLink>
-                    <NavLink href={"/"}>About us</NavLink>
-                    <NavLink href={"/"}>Blog</NavLink>
+                    <NavLink href={"#about"}>About us</NavLink>
+                    <NavLink href={"#blog"}>Blog</NavLink>
                     <Link
                         href={"/"}
                         className='flex items-center mx-auto gap-3'>
                         <FaHeart /> Favorites
                     </Link>
                     <button
+                        onClick={() => dispatch(openLogin())}
                         className={`border w-fit mx-auto py-3 px-14 font-semibold rounded ${
                             path === "/" || scrolled
                                 ? " text-white"

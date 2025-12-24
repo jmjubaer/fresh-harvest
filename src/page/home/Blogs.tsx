@@ -25,7 +25,7 @@ const blogs_data: TBlogs[] = [
 ];
 const Blogs = () => {
     return (
-        <div className='container mb-37.5 relative'>
+        <div id="blog" className='container mb-37.5 relative'>
             <SectionHeading
                 tag='Our Blog'
                 title='Fresh Harvest Blog'

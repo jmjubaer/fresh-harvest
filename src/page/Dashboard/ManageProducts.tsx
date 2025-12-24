@@ -8,10 +8,7 @@ const ManageProducts = () => {
     const { data, isLoading, error } = useGetAllProductsQuery(undefined);
 
     return (
-        <div className=''>
-            <div className="">
-                
-            </div>
+        <div className='pt-20'>
             <Spin tip='Loading' spinning={isLoading} size='large'>
                 {" "}
                 <div className='mt-8 grid md:grid-cols-4 grid-cols-2 md:gap-6 gap-5 min-h-screen'>

@@ -18,7 +18,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
             dispatch(openLogin());
             router.replace("/");
             return;
-        } else if (user?.role !== "admin") {
+        } else if (user?.role !== "ADMIN") {
             Swal.fire({
                 title: "Warning",
                 text: "You are not an admin. Please login as admin",

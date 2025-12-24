@@ -1,10 +1,11 @@
-import DashboardLayout from '@/layout/DashboardLayout';
-import React from 'react';
+import DashboardLayout from "@/layout/DashboardLayout";
+import ProtectedRoute from "@/layout/ProtectedRoute";
+import React from "react";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
     return (
         <DashboardLayout>
-            {children}
+            <ProtectedRoute>{children}</ProtectedRoute>
         </DashboardLayout>
     );
 };

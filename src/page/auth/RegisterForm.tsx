@@ -7,7 +7,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import SocialLogin from "./SocialLogin";
 import { useDispatch } from "react-redux";
-import { openLogin, closeModal } from "@/redux/features/auth/authModalSlice";
+import { openLogin } from "@/redux/features/auth/authModalSlice";
 import { useRegisterMutation } from "@/redux/features/auth/authApi";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";

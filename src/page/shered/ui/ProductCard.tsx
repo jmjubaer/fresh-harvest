@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ProductCard = ({ product }: { product: TProduct }) => {
     return (
-        <div className='px-3 pt-2.5 pb-5 bg-white rounded-lg shadow-xl border border-[#F4F6F6] cursor-pointer group'>
+        <div className='px-3 pt-2.5 pb-5 h-fit bg-white rounded-lg shadow-xl border border-[#F4F6F6] cursor-pointer group'>
             <div className='bg-[#F4F6F6] rounded-lg'>
                 <Image
                     src={product.images[0]}

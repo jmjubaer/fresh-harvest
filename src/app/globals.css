@@ -96,12 +96,19 @@ body {
     border-color: #ff6a1a !important;
 }
 
-/* swiper */
+/* ==================swiper================= */
 .swiper-pagination-bullet-active {
     background: #749b3f !important;
 }
+/* ================== pagination custom style */
+.ant-pagination-item-active {
+    background-color: #749b3f !important;
 
-
+    border-color: #749b3f !important;
+}
+.ant-pagination-item-active a {
+    color: #fff !important;
+}
 
 @media (max-width: 540px) {
     .ant-tabs .ant-tabs-tab-btn {
@@ -109,6 +116,6 @@ body {
         font-size: 12px !important;
     }
     .auth-modal .ant-modal-body {
-    padding: 0px;
-}
+        padding: 0px;
+    }
 }
